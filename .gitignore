@@ -1,5 +1,7 @@
+.vs
+*.user
+bin
+obj
 
-SCANsat.Unity/SCANsat.Unity.csproj
-.vs/SCANsat/v16/.suo
-.vs/SCANsat/v16/.suo
-SCANsat.Unity/SCANsat.Unity.csproj
+GameData/SCANsat/*.dll
+GameData/SCANsat/*.pdb
