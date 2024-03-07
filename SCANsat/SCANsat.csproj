@@ -39,6 +39,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <Import Project="..\KSPCommon\KSPCommon.props" />
+  <Import Project="$(SolutionDir)SCANsat.props" />
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SCANconfigLoader.cs" />
@@ -115,5 +116,5 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <Import Project="..\KSPCommon\KSPCommon.targets" />
 </Project>

@@ -35,6 +35,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <Import Project="..\KSPCommon\KSPCommon.props" />
+  <Import Project="$(SolutionDir)SCANsat.props" />
   <ItemGroup>
     <Reference Include="$(GameDataPath)\MechJeb2\Plugins\MechJeb2.dll">
       <Name>MechJeb2</Name>
@@ -54,11 +55,5 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <Import Project="..\KSPCommon\KSPCommon.targets" />
 </Project>
