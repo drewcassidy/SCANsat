@@ -10,12 +10,12 @@
     <RootNamespace>SCANsat</RootNamespace>
     <AssemblyName>SCANsat</AssemblyName>
     <ReleaseVersion>1.0.8.0</ReleaseVersion>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <Optimize>false</Optimize>
-    <OutputPath>..\GameData\SCANsat\</OutputPath>
+    <OutputPath>bin\Debug</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -28,26 +28,17 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
-    <OutputPath>..\GameData\SCANsat\</OutputPath>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <DebugType>none</DebugType>
-    <CustomCommands>
-      <CustomCommands>
-        <Command type="AfterBuild" command="cp &quot;${ProjectDir}/CHANGELOG.txt&quot; ." workingdir="${TargetDir}" />
-        <Command type="AfterBuild" command="cp &quot;${ProjectDir}/../README.md&quot; ." workingdir="${TargetDir}" />
-        <Command type="AfterBuild" command="cp &quot;${ProjectDir}/LICENSE.txt&quot; ." workingdir="${TargetDir}" />
-        <Command type="AfterBuild" command="bash -c 'for s in &quot;Plugins&quot; &quot;Flags&quot; &quot;Icons&quot; &quot;MM_Parts&quot; &quot;Parts&quot; &quot;Resources&quot;; do cp -ur &quot;${ProjectDir}/../SCANassets/$s&quot; .; done'" workingdir="${TargetDir}" externalConsole="true" />
-        <Command type="Clean" command="rm LICENSE.txt CHANGELOG.txt README.md" workingdir="${TargetDir}" />
-        <Command type="Clean" command="bash -c 'for s in &quot;Plugins&quot; &quot;Flags&quot; &quot;Icons&quot; &quot;MM_Parts&quot; &quot;Parts&quot; &quot;Resources&quot;; do rm -r $s ; done'" workingdir="${TargetDir}" externalConsole="true" />
-      </CustomCommands>
-    </CustomCommands>
     <NoStdLib>true</NoStdLib>
     <DefineConstants>
     </DefineConstants>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <Import Project="..\KSPCommon\KSPCommon.props" />
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SCANconfigLoader.cs" />
@@ -117,86 +108,12 @@
     <Compile Include="SCAN_Unity\SCAN_UI_Settings.cs" />
     <Compile Include="SCAN_Unity\SCAN_UI_ZoomMap.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <MonoDevelop>
-      <Properties>
-        <Policies>
-          <TextStylePolicy FileWidth="120" TabWidth="2" NoTabsAfterNonTabs="True" EolMarker="Windows" inheritsSet="Mono" inheritsScope="text/plain" scope="text/plain" />
-        </Policies>
-      </Properties>
-    </MonoDevelop>
-  </ProjectExtensions>
-  <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System">
-      <HintPath>..\..\..\KSP_Data\Managed\System.dll</HintPath>
-    </Reference>
-    <Reference Include="mscorlib">
-      <HintPath>..\..\..\KSP_Data\Managed\mscorlib.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UIModule">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.UIModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SCANsat.Unity\SCANsat.Unity.csproj">
       <Project>{4ed5e40d-273a-4643-9009-04c1dd02f3e2}</Project>
       <Name>SCANsat.Unity</Name>
-      <Private>True</Private>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
-  <PropertyGroup>
-    <PostBuildEvent>
-REM "C:\Users\david\Documents\Visual Studio 2013\Projects\KSP Dev\pdb2mdb\pdb2mdb.exe" "$(TargetFileName)"
-xcopy /Y "$(TargetPath)" "C:\Users\david\Documents\KSP\Dev Environment\1.10\Kerbal Space Program\GameData\SCANsat\Plugins\"
-REM xcopy /Y "$(TargetPath)" "C:\Users\david\Documents\KSP\Dev Environment\Debugging\Kerbal Space Program\GameData\SCANsat\Plugins\"
-REM xcopy /Y "$(TargetDir)$(TargetName).pdb" "C:\Users\david\Documents\KSP\Dev Environment\Debugging\Kerbal Space Program\GameData\SCANsat\Plugins\"
-REM xcopy /Y "$(TargetDir)$(TargetName).dll.mdb" "C:\Users\david\Documents\KSP\Dev Environment\Debugging\Kerbal Space Program\GameData\SCANsat\Plugins\"</PostBuildEvent>
-  </PropertyGroup>
 </Project>

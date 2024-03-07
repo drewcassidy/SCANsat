@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SCANsat.Unity</RootNamespace>
     <AssemblyName>SCANsat.Unity</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,39 +26,13 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\Release</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UIModule">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.UIModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
+  <Import Project="..\KSPCommon\KSPCommon.props" />
   <ItemGroup>
     <Compile Include="CanvasFader.cs" />
     <Compile Include="HSVPicker\Enums\ColorValues.cs" />
@@ -75,7 +49,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="HSVPicker\UI\SVBoxSlider.cs" />
-    <Compile Include="HSVPicker\UtilityScripts\BoxSlider.cs" />
     <Compile Include="HSVPicker\UtilityScripts\HSVUtil.cs" />
     <Compile Include="InputHandler.cs" />
     <Compile Include="Interfaces\ISCAN_BigMap.cs" />
@@ -125,16 +98,6 @@
     <Compile Include="Unity\SCAN_ZoomMap.cs" />
   </ItemGroup>
   <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>:: copy /y "$(TargetPath)" "C:\Users\david\Documents\KSP\SCANsat\Unity 2017 UI\SCANsat\Assets\Plugins\"
-
-:: "C:\Users\david\Documents\KSP\Dev Environment\1.9.1\pdb2mdb\pdb2mdb.exe" "$(TargetFileName)"
-xcopy /Y "$(TargetPath)" "C:\Users\david\Documents\KSP\Dev Environment\1.10\Kerbal Space Program\GameData\SCANsat\Plugins\"
-xcopy /Y "$(TargetPath)" "C:\Users\david\Documents\KSP\Dev Environment\Debugging\Kerbal Space Program\GameData\SCANsat\Plugins\"
-xcopy /Y "$(TargetDir)$(TargetName).pdb" "C:\Users\david\Documents\KSP\Dev Environment\Debugging\Kerbal Space Program\GameData\SCANsat\Plugins\"
-:: xcopy /Y "$(TargetDir)$(TargetName).dll.mdb" "C:\Users\david\Documents\KSP\Dev Environment\Debugging\Kerbal Space Program\GameData\SCANsat\Plugins\"</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

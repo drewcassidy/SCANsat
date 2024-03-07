@@ -1,0 +1,3 @@
+[submodule "KSPCommon"]
+	path = KSPCommon
+	url = https://github.com/KSPModStewards/KSPCommon

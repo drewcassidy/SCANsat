@@ -3,5 +3,5 @@
 bin
 obj
 
-GameData/SCANsat/*.dll
-GameData/SCANsat/*.pdb
+GameData/SCANsat/Plugins/*.dll
+GameData/SCANsat/Plugins/*.pdb
