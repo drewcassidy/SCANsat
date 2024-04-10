@@ -5,3 +5,5 @@ obj
 
 GameData/SCANsat/Plugins/*.dll
 GameData/SCANsat/Plugins/*.pdb
+GameData/SCANsat/PluginData
+GameData/MechJeb2
